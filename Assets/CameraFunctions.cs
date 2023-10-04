@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraEdgeScroll : MonoBehaviour
+public class CameraFunctions : MonoBehaviour
 {
     //Global camera scroll speed for both arrow keys and edge of screen movement.
     public float scrollSpeed = 5.0f;

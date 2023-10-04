@@ -7,11 +7,15 @@ public class playerSelect : MonoBehaviour
     public GameObject selectedUnit;
     public GameObject previousSelection;
     public bool canSelectUnits;
+    public Color selectedColor = Color.yellow; //Selection Color
+    private Color originalColor;
+    private SpriteRenderer spriteRenderer;
+
 
     // Start
     void Start()
     {
-        
+
     }
 
     // Update
@@ -59,19 +63,37 @@ public class playerSelect : MonoBehaviour
 
         selectedUnit = unit;
 
-        // Selecting units
+        if (selectedUnit != null)
+        {
+            spriteRenderer = selectedUnit.GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                originalColor = spriteRenderer.color;
+                spriteRenderer.color = selectedColor;
+            }
+        }
     }
 
     void DeselectUnit()
     {
         if (selectedUnit != null)
         {
+            if (selectedUnit != null)
+            {
+                // Visual feedback: Restore the SpriteRenderer's original color
+                spriteRenderer = selectedUnit.GetComponent<SpriteRenderer>();
+                if (spriteRenderer != null)
+                {
+                    spriteRenderer.color = originalColor;
+                }
+            }
+
             previousSelection = selectedUnit;
             // Deselecting units
         }
 
-        
+
         selectedUnit = null;
-        
+
     }
 }

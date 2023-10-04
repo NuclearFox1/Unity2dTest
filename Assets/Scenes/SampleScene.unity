@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 40288000}
   - component: {fileID: 40287999}
   m_Layer: 0
-  m_Name: Yellow Square
+  m_Name: Orange Square
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +228,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.78889406, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.50181097, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1006,6 +1006,7 @@ MonoBehaviour:
   selectedUnit: {fileID: 0}
   previousSelection: {fileID: 0}
   canSelectUnits: 1
+  selectedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1120387350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,6 +1314,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.59
       objectReference: {fileID: 0}
+    - target: {fileID: 1525496831340020580, guid: bcf29a876a0bd654a91b6417e05a35fd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.50181097
+      objectReference: {fileID: 0}
     - target: {fileID: 1591508316465046734, guid: bcf29a876a0bd654a91b6417e05a35fd, type: 3}
       propertyPath: m_Name
       value: White Square
@@ -1323,7 +1328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237122903732171555, guid: bcf29a876a0bd654a91b6417e05a35fd, type: 3}
       propertyPath: m_Name
-      value: Yellow Square
+      value: Orange Square
       objectReference: {fileID: 0}
     - target: {fileID: 6444865614832708505, guid: bcf29a876a0bd654a91b6417e05a35fd, type: 3}
       propertyPath: m_Name
