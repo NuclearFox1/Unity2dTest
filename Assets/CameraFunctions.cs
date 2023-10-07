@@ -32,10 +32,14 @@ public class CameraFunctions : MonoBehaviour
         float horizontalMovement = 0f;
         float verticalMovement = 0f;
 
+        //Reset for this frame check.
+        isEdgeOfScreenMovement = false;
+        isArrowKeyMoving = false;
+
         //Moving by edge of screen mouse.
-        if (screenScrollEnabled && !isDragging && !isArrowKeyMoving)
+        if (screenScrollEnabled && !isDragging && !isArrowKeyMoving && Application.isFocused)
         {
-            isEdgeOfScreenMovement = false;
+            
 
             if (mousePosition.x <= edgeThreshold)
             {
@@ -63,8 +67,6 @@ public class CameraFunctions : MonoBehaviour
         //Moving by arrow keys
         if (arrowKeyMovementEnabled && !isDragging && !isEdgeOfScreenMovement)
         {
-            isArrowKeyMoving = false;
-
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 isArrowKeyMoving = true;

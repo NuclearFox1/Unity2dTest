@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class playerSelect : MonoBehaviour
 {
@@ -11,23 +12,38 @@ public class playerSelect : MonoBehaviour
     private Color originalColor;
     private SpriteRenderer spriteRenderer;
 
+    private bool hitSomethingUI;
+
+
+
 
     // Start
     void Start()
     {
-
+        
     }
 
     // Update
     void Update()
+
     {
+        hitSomethingUI = false;
+
         if (canSelectUnits && Input.GetMouseButtonUp(0))
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+            
 
-            if (hit.collider != null)
+            if (EventSystem.current.IsPointerOverGameObject())
             {
+                hitSomethingUI = true;
+                Debug.Log("Clicked UI element");
+            }
+
+            else if (hit.collider != null && !hitSomethingUI)
+            {
+                Debug.Log("Hit an object called: " + hit.collider.gameObject.name);
                 GameObject newSelection = hit.collider.gameObject;
                 if (newSelection.CompareTag("Unit"))
                 {
@@ -40,7 +56,9 @@ public class playerSelect : MonoBehaviour
             }
             else
             {
-                DeselectUnit();
+                Debug.Log("Hit nothing.");
+
+               DeselectUnit();
             }
         }
 
