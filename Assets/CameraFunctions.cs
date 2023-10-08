@@ -23,6 +23,21 @@ public class CameraFunctions : MonoBehaviour
     public bool screenScrollEnabled = true;
     public bool screenDragEnabled = true;
     public bool arrowKeyMovementEnabled = true;
+    public bool zCameraSwapEnabled = true;
+
+    //Player object for finding selected and previously selected units for various camera functions.
+    GameObject playerObject;
+    private bool isZSwapping = false;
+    //Time to double click and double click countdown.
+    public float zSwapTime = 1.0f;
+
+
+    void Start()
+    {
+        //Set player object reference.
+        playerObject = GameObject.Find("Player");
+    }
+
 
     void Update()
     {
@@ -115,6 +130,12 @@ public class CameraFunctions : MonoBehaviour
             // Calculate the movement vector and apply speed.
             Vector3 movement = new Vector3(horizontalMovement, verticalMovement, 0f).normalized;
             cameraPosition += movement * scrollSpeed * Time.deltaTime;
+        }
+
+        //Check if Z was hit to start z camera swap function.
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+
         }
 
         // Apply the new camera position.
