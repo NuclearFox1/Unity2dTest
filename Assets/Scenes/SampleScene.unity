@@ -748,7 +748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollSpeed: 25
   edgeThreshold: 20
-  dragSensitivity: 0.028
+  dragSensitivity: 1
   screenScrollEnabled: 0
   screenDragEnabled: 1
   arrowKeyMovementEnabled: 1
@@ -788,7 +788,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 664.54, y: -120.599976}
+  m_AnchoredPosition: {x: 664.55, y: -120.599976}
   m_SizeDelta: {x: -1329.1, y: -602.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &524940701

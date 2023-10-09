@@ -43,6 +43,7 @@ public class CameraFunctions : MonoBehaviour
     {
         Vector3 cameraPosition = transform.position;
         Vector3 mousePosition = Input.mousePosition;
+        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         float horizontalMovement = 0f;
         float verticalMovement = 0f;
@@ -109,7 +110,7 @@ public class CameraFunctions : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && screenDragEnabled && !isArrowKeyMoving && !isEdgeOfScreenMovement)
         {
             isDragging = true;
-            dragOrigin = mousePosition;
+            dragOrigin = worldMousePosition;
         }
 
         // Check for right mouse button release to stop dragging.
@@ -121,8 +122,7 @@ public class CameraFunctions : MonoBehaviour
         // During dragging, calculate the movement based on mouse drag delta.
         if (isDragging)
         {
-            Vector3 dragDelta = (mousePosition - dragOrigin) * dragSensitivity; // Adjust sensitivity
-            dragOrigin = mousePosition;
+            Vector3 dragDelta = (worldMousePosition - dragOrigin) * dragSensitivity; // Adjust sensitivity
             cameraPosition += new Vector3(-dragDelta.x, -dragDelta.y, 0f);
         }
         else
