@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class testMovementScript : MonoBehaviour
 {
+    public float movementSpeedY = 0.0005f;
+    public float movementSpeedX = 0.0005f;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +15,8 @@ public class testMovementScript : MonoBehaviour
     void Update()
     {
         Vector3 currentPosition = transform.position;
-        currentPosition.y += 0.0005f;
+        currentPosition.y += movementSpeedY;
+        currentPosition.x += movementSpeedX;
         transform.position = currentPosition;
     }
 }

@@ -85,10 +85,10 @@ public class playerSelect : MonoBehaviour
         // adjust the square outline's shape
         ChangeSquareOutline changeSquareOutline = squareOutline.GetComponent<ChangeSquareOutline>();
         changeSquareOutline.AdjustShape(selectedUnit);
-
+        changeSquareOutline.targetSelected = true;
         //move the square outline to world 0,0 to make it in the right spot to render the outline around the object appropriately.
-        squareOutline.transform.position = new Vector3(0f, 0f, squareOutline.transform.position.z);
-        //squareOutline.transform.position = selectedUnit.transform.position;
+        //squareOutline.transform.position = new Vector3(0f, 0f, squareOutline.transform.position.z);
+        squareOutline.transform.position = selectedUnit.transform.position;
 
         if (selectedUnit != null)
         {
@@ -114,6 +114,8 @@ public class playerSelect : MonoBehaviour
                     spriteRenderer.color = originalColor;
                 }
             }
+            ChangeSquareOutline changeSquareOutline = squareOutline.GetComponent<ChangeSquareOutline>();
+            changeSquareOutline.targetSelected = false;
             squareOutline.transform.position = new Vector3(200000f, squareOutline.transform.position.y, squareOutline.transform.position.z);
 
             previousSelection = selectedUnit;
