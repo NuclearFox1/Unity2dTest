@@ -8,6 +8,7 @@ public class ChangeSquareOutline : MonoBehaviour
     public LineRenderer square;
     public bool targetSelected = false;
     private GameObject targetedObject;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,10 @@ public class ChangeSquareOutline : MonoBehaviour
         if (targetSelected && targetedObject != null)
         {
             transform.position = targetedObject.transform.position;
+        }
+        else if (targetedObject == null && targetSelected)
+        {
+            ForceDeselection();
         }
     }
 
@@ -51,5 +56,13 @@ public class ChangeSquareOutline : MonoBehaviour
                 square.SetPositions(points);
             }
         } 
+    }
+
+    public void ForceDeselection()
+    {
+        playerSelect playerSelectScript = player.GetComponent<playerSelect>();
+        playerSelectScript.DeselectUnit();
+        Debug.Log("Destroyed object and called deselect.");
+        targetSelected = false;
     }
 }

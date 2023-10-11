@@ -101,8 +101,9 @@ public class playerSelect : MonoBehaviour
         }
     }
 
-    void DeselectUnit()
+    public void DeselectUnit()
     {
+        squareOutline.transform.position = new Vector3(200000f, squareOutline.transform.position.y, squareOutline.transform.position.z);
         if (selectedUnit != null)
         {
             if (selectedUnit != null)
