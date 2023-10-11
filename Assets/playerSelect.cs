@@ -13,14 +13,14 @@ public class playerSelect : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private bool hitSomethingUI;
-
+    public GameObject squareOutline;
 
 
 
     // Start
     void Start()
     {
-        
+
     }
 
     // Update
@@ -33,7 +33,7 @@ public class playerSelect : MonoBehaviour
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
-            
+
 
             if (EventSystem.current.IsPointerOverGameObject())
             {
@@ -58,7 +58,7 @@ public class playerSelect : MonoBehaviour
             {
                 Debug.Log("Hit nothing.");
 
-               DeselectUnit();
+                DeselectUnit();
             }
         }
 
@@ -80,6 +80,7 @@ public class playerSelect : MonoBehaviour
         DeselectUnit();
 
         selectedUnit = unit;
+        squareOutline.transform.position = selectedUnit.transform.position;
 
         if (selectedUnit != null)
         {
@@ -105,6 +106,7 @@ public class playerSelect : MonoBehaviour
                     spriteRenderer.color = originalColor;
                 }
             }
+            squareOutline.transform.position = new Vector3(2000f, squareOutline.transform.position.y, squareOutline.transform.position.z);
 
             previousSelection = selectedUnit;
             // Deselecting units
