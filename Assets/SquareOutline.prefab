@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4488633359756175193}
   - component: {fileID: 2082624712833997228}
+  - component: {fileID: -122792344432252697}
   m_Layer: 0
   m_Name: SquareOutline
   m_TagString: Untagged
@@ -139,3 +140,15 @@ LineRenderer:
   m_UseWorldSpace: 0
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &-122792344432252697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5094616043522702231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32eea4825f9a563409a531de6692508d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
